@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>UrbanCart | Modern E‑commerce</title>
+  <!-- Google Fonts & simple reset -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- HEADER / NAVIGATION -->
+  <header class="main-header">
+    <div class="container nav-container">
+      <div class="logo">
+        <span class="logo-icon">🛒</span> urban<span>Cart</span>
+      </div>
+      <nav class="desktop-nav">
+        <a href="#" class="nav-link active" data-section="home">Home</a>
+        <a href="#" class="nav-link" data-section="shop">Shop</a>
+        <a href="#" class="nav-link" data-section="about">About</a>
+      </nav>
+      <div class="header-right">
+        <select id="currencySelector" class="currency-selector">
+          <option value="USD">$ USD</option>
+          <option value="BDT">৳ BDT</option>
+        </select>
+        <div class="cart-icon-wrapper">
+          <button class="cart-btn" id="cartToggleBtn" aria-label="Shopping cart">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT (DYNAMIC PAGES) -->
+  <main id="app-root">
+    <!-- HOME section loaded by default -->
+    <section id="home-section" class="page-section active-section">
+      <div class="hero">
+        <div class="container hero-content">
+          <h1>Elevate Your Everyday Style</h1>
+          <p>Discover premium essentials — curated for comfort, quality, and modern living.</p>
+          <button class="btn-primary shop-now-hero" data-nav-shop>Shop Now →</button>
+        </div>
+      </div>
+      <div class="container featured-grid">
+        <h2 class="section-title">Why choose UrbanCart?</h2>
+        <div class="features">
+          <div class="feature-card">🚚 Free shipping worldwide</div>
+          <div class="feature-card">💎 30-day returns</div>
+          <div class="feature-card">🔒 Secure checkout</div>
+          <div class="feature-card">✨ Member rewards</div>
+        </div>
+        <div class="product-preview">
+          <h2 class="section-title">Bestsellers</h2>
+          <div class="product-grid" id="home-preview-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHOP section (product catalog) -->
+    <section id="shop-section" class="page-section">
+      <div class="container shop-container">
+        <h2 class="section-title">All Products</h2>
+        <div class="filters">
+          <button class="filter-btn active-filter" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="clothing">Clothing</button>
+          <button class="filter-btn" data-filter="accessories">Accessories</button>
+          <button class="filter-btn" data-filter="shoes">Footwear</button>
+        </div>
+        <div class="product-grid" id="shop-product-grid"></div>
+      </div>
+    </section>
+
+    <!-- ABOUT section -->
+    <section id="about-section" class="page-section">
+      <div class="container about-container">
+        <h2 class="section-title">About UrbanCart</h2>
+        <div class="about-card">
+          <p>Founded in 2025, UrbanCart blends minimal design with functional e‑commerce. We believe shopping should be effortless, secure, and delightful.</p>
+          <p>Our mission: bring high-quality products directly to your doorstep with zero hassle. Every piece is selected with sustainability and modern aesthetics in mind.</p>
+          <div class="stats">
+            <div><strong>10k+</strong><span>Happy customers</span></div>
+            <div><strong>50+</strong><span>Countries served</span></div>
+            <div><strong>24/7</strong><span>Support</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- CART SIDEBAR (Overlay) -->
+  <div id="cartSidebar" class="cart-sidebar">
+    <div class="cart-sidebar-header">
+      <h3>Your Cart</h3>
+      <button id="closeCartBtn" class="close-cart">&times;</button>
+    </div>
+    <div id="cartItemsList" class="cart-items-list">
+      <!-- cart items injected -->
+      <div class="empty-cart-msg">Your cart is empty.</div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">Total: <span id="cartTotalPrice">$0.00</span></div>
+      <button id="checkoutBtn" class="btn-checkout">Checkout</button>
+    </div>
+  </div>
+  <div id="cartOverlay" class="cart-overlay"></div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toastMsg" class="toast-message"></div>
+
+
+
+
+  <script src="main.js"></script>
+ 
+
+  
+</body>
+</html>
